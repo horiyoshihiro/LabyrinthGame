@@ -1,0 +1,19 @@
+@@startuml
+
+title ゲームクリア後にタイトル画面に戻るまで
+
+eventManager -> abstractInput : waitInput()
+    alt you got any kind of key input
+        abstractInput -> readKey : getInput()
+        readKey --> abstractInput
+    end
+abstractInput --> eventManager
+
+eventManager -> viewChanger : backToTitle()
+    viewChanger -> abstractOutput : showTitle()
+        abstractOutput -> showView : writeTitle()
+        showView --> abstractOutput
+    abstractOutput --> viewChanger
+viewChanger --> eventManager
+
+@@enduml

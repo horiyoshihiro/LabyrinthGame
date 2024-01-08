@@ -1,0 +1,37 @@
+@startuml
+
+title 迷路ゲームプレイ中シーケンス
+
+loop
+    eventManger -> abstractInput : waitInput()
+    alt you got any kind of key input
+        abstractInput -> readKey : getInput()
+        readKey --> abstractInput
+    end
+    abstractInput --> eventManger
+
+    eventManger -> playerManager : getPositionOfPl()
+    playerManager --> eventManger
+
+    eventManger -> labyrinthManager : procLab()
+    labyrinthManager --> eventManger
+
+    alt not pass labyrinth
+        eventManger -> viewChanger : procGame()
+            viewChanger -> abstractOutput : showGameView()
+                abstractOutput -> showView : writeLabandPl()
+                showView --> abstractOutput
+            abstractOutput -> viewChanger
+        viewChanger --> eventManger
+    else pass labyrinth
+        eventManger -> timer : getTime()
+        timer --> eventManger 
+        eventManger -> viewChanger : passGame()
+            viewChanger -> abstractOutput : showPassView()
+                abstractOutput -> showView : writeCongandTime()
+        break
+        end
+    end
+end
+
+@enduml

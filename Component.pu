@@ -1,0 +1,29 @@
+@startuml
+package "input" {
+    [abstractInput] --> [readKey]
+}
+
+package "process" {
+    [eventManager]
+    [timer]
+    [labyrinthManager]
+    [playerManager]
+    [viewChanger]
+}
+
+package "output" {
+    [abstractOutput] --> [showView]
+}
+
+[eventManager]     -->  [abstractInput]
+
+
+[viewChanger]      --> [abstractOutput]     
+
+[eventManager] --> [timer]
+[eventManager] -->  [playerManager]
+[eventManager] -->  [labyrinthManager]
+[eventManager] -->  [viewChanger]
+
+
+@enduml

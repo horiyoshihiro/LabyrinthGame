@@ -1,0 +1,29 @@
+@startuml
+title クラス図
+
+class Player {
+    -int[][] currentPosition
+    +procPlayer()
+    +getPositionOfPl()
+}
+class Labyrinth {
+    -int[][] mapOfLabyrinth
+    -int[][] revealedMpOfLabyrinth
+    +isWallorWay()
+    +revealMap()
+}
+class Message {
+    +String congratuation
+    +String endGame
+    +String startGame
+    +String Title
+    +String onGamging
+}
+class Time {
+    -int startTime
+    +setStartTime()
+    +calcPlayTime()
+}
+
+
+@enduml

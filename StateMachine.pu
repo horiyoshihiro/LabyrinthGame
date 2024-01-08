@@ -1,0 +1,24 @@
+@startuml
+title title
+[*] --> Title
+
+Title --> finishGame
+Title --> playGame : Labyrinth
+
+playGame --> passGame : get to a goal
+passGame --> Title
+
+finishGame -> [*]
+
+
+
+Title :Labyrinth..*
+Title : finish Game
+
+playGame : Labyrinth
+playGame : player
+
+passGame : time
+
+
+@enduml

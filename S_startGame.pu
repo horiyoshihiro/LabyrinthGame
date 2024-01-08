@@ -1,0 +1,50 @@
+@startuml
+
+title タイトル画面からの遷移
+
+eventManager -> abstractInput : waitInput()
+    alt you got any kind of key input
+        abstractInput -> readKey : getInput()
+        readKey --> abstractInput
+    end
+abstractInput --> eventManager
+
+alt finish game
+    eventManager -> viewChanger : finishGame()
+        viewChanger -> abstractOutput : showFinishView()
+            abstractOutput -> showView : writeFinishMessage()
+            showView --> abstractOutput
+        abstractOutput --> viewChanger
+    viewChanger --> eventManager
+    eventManager -> eventManager : endMyself()
+    break
+        note right
+            end main loop
+        end note
+    end
+
+else start game
+    eventManager -> labyrinthManager : makeLabyrinth()
+    labyrinthManager --> eventManager
+    
+    eventManager -> playerManager : makePlayer()
+    playerManager -->eventManager
+
+    eventManager -> timer : getTime()
+    timer --> eventManager
+
+    eventManager -> viewChanger : playGame()
+        viewChanger -> abstractOutput : showGameView()
+            abstractOutput -> showView : writeLabandPl()
+            showView --> abstractOutput
+        abstractOutput --> viewChanger
+    viewChanger --> eventManager
+
+    note right
+        ゲームシーケンスへ
+    end note
+
+end
+
+
+@enduml
