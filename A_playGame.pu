@@ -17,7 +17,7 @@ repeat
 repeat while (not pass game?)
 
 :calcPlayTime();
-:passGame();
+:ProcAfterPassGame();
 repeat
     :waitInput();
 repeat while (any key input?)

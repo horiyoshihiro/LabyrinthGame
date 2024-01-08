@@ -1,30 +1,19 @@
-@startuml
+@@startuml
 
 start
 
 :init();
 
+:systemStart();
+
 repeat
-    :systemStart();
-
-    :waitInput();
-
-    repeat
-    repeat while (any correct input?)
-
     if (start game?) then (yes)
-        :makeLabyrinth();
-        :makePlayer();
-        :setStartTime();
-
-        repeat
-            :playGame();
-        repeat while (pass Game?)
-
+        :startGame();
     else (no)
         :finishGame();
         break
     endif
 repeat while (0)
 
-@enduml
+end
+@@enduml

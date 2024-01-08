@@ -13,7 +13,7 @@ loop
     eventManger -> playerManager : getPositionOfPl()
     playerManager --> eventManger
 
-    eventManger -> labyrinthManager : procLab()
+    eventManger -> labyrinthManager : revealLab()
     labyrinthManager --> eventManger
 
     alt not pass labyrinth
@@ -26,7 +26,7 @@ loop
     else pass labyrinth
         eventManger -> timer : calcPlayTime()
         timer --> eventManger 
-        eventManger -> viewChanger : passGame()
+        eventManger -> viewChanger : ProcAfterPassGame()
             viewChanger -> abstractOutput : showPassView()
                 abstractOutput -> showView : writeCongandTime()
         break

@@ -5,8 +5,8 @@ title title
 Title --> finishGame
 Title --> playGame : Labyrinth
 
-playGame --> passGame : get to a goal
-passGame --> Title
+playGame --> ProcAfterPassGame : get to a goal
+ProcAfterPassGame --> Title
 
 finishGame -> [*]
 
@@ -18,7 +18,7 @@ Title : finish Game
 playGame : Labyrinth
 playGame : player
 
-passGame : time
+ProcAfterPassGame : time
 
 
 @enduml
