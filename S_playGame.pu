@@ -24,7 +24,7 @@ loop
             abstractOutput -> viewChanger
         viewChanger --> eventManger
     else pass labyrinth
-        eventManger -> timer : getTime()
+        eventManger -> timer : calcPlayTime()
         timer --> eventManger 
         eventManger -> viewChanger : passGame()
             viewChanger -> abstractOutput : showPassView()

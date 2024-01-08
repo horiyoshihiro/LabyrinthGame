@@ -1,0 +1,29 @@
+@startuml
+
+title ゲームプレイ時のアクティビティ図
+
+start
+repeat
+    :waitInput();
+
+    repeat
+    repeat while (any correct input?)
+
+    if (not pass Labyrinth?) then (yes)
+        :procGame();
+    else (no)
+        break
+    endif
+repeat while (not pass game?)
+
+:calcPlayTime();
+:passGame();
+repeat
+    :waitInput();
+repeat while (any key input?)
+
+:backToTitle();
+
+end
+
+@enduml
