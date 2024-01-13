@@ -1,0 +1,26 @@
+@startuml
+
+start
+
+    :getPositionOfPl();
+    :getMap();
+
+    :showGameView();
+
+    :getPlayreAction();
+
+    :isWallorWay();
+
+    :procPlayer();
+
+    :getPositionOfPl();
+    if (pass the Labylinth ?) then (yes)
+        :return E_OK; 
+    else (no)
+        :return E_NOT_OK;
+        
+    endif
+
+end
+
+@enduml

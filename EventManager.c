@@ -5,40 +5,43 @@ void init() {
 
 }
 
-InputType systemStart(){
-    
-}
-
-void startGame(InputType input){
+void startGame(){
     time_t playTime;
 
     /* prepare for game */
-    makeLabyrinth(input);
+    LabID labID = chooseLabyrinth();
+    makeLabyrinth(&labID);
     makePlayer();
     setStartTime();
 
     /* start process of game */
-    playGame();
+    
 
     do {
-        input = waitInput();
-
-        int position[1][1] = getPositionOfPl();
-        bool getToGoal =  revealLab( &position , input );
-        if ( FALSE == getToGoal ) {
-            reflectToPlPos( &position );
-        }
-
+        bool getToGoal = playGame();
     }while( !getToGoal )
+}
 
-    /* clear this game */
-    playTime = calcPlayTime();
+bool playGame(){
+    int[1][1] position;
+    int[SIZEOFMAP][SIZEOFMAP] map;
+    ActionType action;
 
-    ProcAfterPassGame(playTime);
+    retPos = getPositionOfPl(&position);
+    retMap = getMap(&map);
 
-    waitInput();
+    showGameView(&map, &position);
 
-    backTotitle();
+    ret = getPlayerAction(&action);
+
+    ret = isWallorWay(position, action);
+
+
+    plocPlayer(position, ret);
+
+    getPositionOfPl(&position);
+
+    if ( )
 
 }
 

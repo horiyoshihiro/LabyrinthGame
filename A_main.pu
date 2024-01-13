@@ -1,12 +1,13 @@
-@@startuml
+@startuml
+
+title メイン関数
 
 start
 
 :init();
 
-:systemStart();
-
 repeat
+    :askStartORFinishGame();
     if (start game?) then (yes)
         :startGame();
     else (no)
@@ -16,4 +17,4 @@ repeat
 repeat while (0)
 
 end
-@@enduml
+@enduml

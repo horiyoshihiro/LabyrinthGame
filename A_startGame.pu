@@ -1,0 +1,18 @@
+@startuml
+
+title ゲーム開始
+
+start
+
+    :chooseLabyrinth();
+    :makeLabyrinth();
+    :makePlayer();
+    :setStartTime();
+
+    repeat
+        :playGame();
+    repeat while (pass Game?)
+
+    :ref A_playGame;
+
+@enduml

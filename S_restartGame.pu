@@ -2,18 +2,18 @@
 
 title ゲームクリア後にタイトル画面に戻るまで
 
-eventManager -> abstractInput : waitInput()
+eventManager -> IOManager : waitInput()
     alt you got any kind of key input
-        abstractInput -> readKey : getInput()
-        readKey --> abstractInput
+        IOManager -> readKey : getInput()
+        readKey --> IOManager
     end
-abstractInput --> eventManager
+IOManager --> eventManager
 
 eventManager -> viewChanger : backToTitle()
-    viewChanger -> abstractOutput : showTitle()
-        abstractOutput -> showView : writeTitle()
-        showView --> abstractOutput
-    abstractOutput --> viewChanger
+    viewChanger -> IOManager : showTitle()
+        IOManager -> showView : writeTitle()
+        showView --> IOManager
+    IOManager --> viewChanger
 viewChanger --> eventManager
 
 @@enduml

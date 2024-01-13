@@ -1,19 +1,17 @@
 #include <stdio.h>
 #include "Main.h"
-
-
+#include "EventManager.h"
+#include "IOManager.h"
 
 
 void main() {
     init();
 
-    InputType input = systemStart();
-
     while ( 0 ){
-
-        if ( YES == input ) {
+        bool ret = askStartORFinishGame();
+        if ( START == ret ) {
             startGame();
-        } else {/* NO == input */
+        } else {
             finishGame();
             break;
         }

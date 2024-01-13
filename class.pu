@@ -7,10 +7,12 @@ class Player {
     +getPositionOfPl()
 }
 class Labyrinth {
+    -int     ID
     -int[][] mapOfLabyrinth
     -int[][] revealedMpOfLabyrinth
     +isWallorWay()
     +revealMap()
+    +getMap()
 }
 class Message {
     +String congratuation

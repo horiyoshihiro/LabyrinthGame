@@ -1,7 +1,13 @@
 @startuml
-package "input" {
-    [abstractInput] --> [readKey]
+package "abstractIO" {
+    [IOManager]
 }
+
+package "input" {
+     [readKey]
+}
+
+[IOManager] --> [readKey]
 
 package "process" {
     [eventManager]
@@ -12,13 +18,13 @@ package "process" {
 }
 
 package "output" {
-    [abstractOutput] --> [showView]
+    [IOManager] --> [showView]
 }
 
-[eventManager]     -->  [abstractInput]
+[eventManager]     -->  [IOManager]
 
 
-[viewChanger]      --> [abstractOutput]     
+[viewChanger]      --> [IOManager]     
 
 [eventManager] --> [timer]
 [eventManager] -->  [playerManager]
