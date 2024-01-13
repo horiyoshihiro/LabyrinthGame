@@ -8,11 +8,13 @@ class Player {
 }
 class Labyrinth {
     -int     ID
+    -int[2]  cordinateOfGoal
     -int[][] mapOfLabyrinth
     -int[][] revealedMpOfLabyrinth
     +isWallorWay()
     +revealMap()
     +getMap()
+    +isPlayerOnGoal()
 }
 class Message {
     +String congratuation

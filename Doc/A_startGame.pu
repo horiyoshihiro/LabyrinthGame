@@ -13,6 +13,4 @@ start
         :playGame();
     repeat while (pass Game?)
 
-    :ref A_playGame;
-
 @enduml

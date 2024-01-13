@@ -7,9 +7,10 @@ void init() {
 
 void startGame(){
     time_t playTime;
+    bool getToGoal;
 
     /* prepare for game */
-    LabID labID = chooseLabyrinth();
+    LabIDType labID = chooseIDOFLabyrinth();
     makeLabyrinth(&labID);
     makePlayer();
     setStartTime();
@@ -18,30 +19,49 @@ void startGame(){
     
 
     do {
-        bool getToGoal = playGame();
+        getToGoal = playGame();
     }while( !getToGoal )
 }
 
 bool playGame(){
-    int[1][1] position;
+    PositionType position;
     int[SIZEOFMAP][SIZEOFMAP] map;
     ActionType action;
 
-    retPos = getPositionOfPl(&position);
-    retMap = getMap(&map);
 
-    showGameView(&map, &position);
+    while( 0 ){
+        PositionType revealPoint;
 
-    ret = getPlayerAction(&action);
+        retPos = getPositionOfPl(&position);
+        retMap = getMap(&map);
 
-    ret = isWallorWay(position, action);
+        showGameView(&map, &position);
+
+        ret = getPlayerAction(&action);
+
+        ret = isWallorWay(position, action);
 
 
-    plocPlayer(position, ret);
+        revealedPoint = plocPlayer(position, ret);
 
-    getPositionOfPl(&position);
+        revealMap(revealedPoint);
 
-    if ( )
+        getPositionOfPl(&position);
+
+        if ( isPlayerOnGoal(&position) ) {
+            /* player pass the game */
+            break;
+        }else{
+            /* continue process */
+        }
+    }
+
+    /* process after pass the game */
+    int timeRecord = calcPlayTime();
+
+    ProcAfterPassGame();
+
+    backToTitle();
 
 }
 

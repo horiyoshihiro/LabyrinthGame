@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include "Timer.h"
+#include "LabyrinthManager.h"
+#include "PlayerManager.h"
+#include "ViewChanger.h"
+#include "IOManager.h"
+#include "Util.h"
 
 /* Prototype declaration */
 extern void init();

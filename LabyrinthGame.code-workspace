@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "LabyrinthGame",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdio.h": "c"
+		}
+	}
+}
