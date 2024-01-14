@@ -5,8 +5,8 @@ title ゲーム開始
 start
 
     :chooseLabyrinth();
-    :makeLabyrinth();
-    :makePlayer();
+    :setLabyrinth();
+    :setPlayer();
     :setStartTime();
 
     repeat

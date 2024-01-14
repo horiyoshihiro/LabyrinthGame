@@ -2,7 +2,7 @@
 
 start
 
-    :getPositionOfPl();
+    :P_getPositionOfPl();
     :getMap();
 
     :showGameView();
@@ -13,7 +13,7 @@ start
 
     :procPlayer();
 
-    :getPositionOfPl();
+    :P_getPositionOfPl();
     if (pass the Labylinth ?) then (yes)
         :return E_OK; 
     else (no)

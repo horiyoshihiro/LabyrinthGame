@@ -24,10 +24,10 @@ alt finish game
     end
 
 else start game
-    eventManager -> labyrinthManager : makeLabyrinth()
+    eventManager -> labyrinthManager : setLabyrinth()
     labyrinthManager --> eventManager
     
-    eventManager -> playerManager : makePlayer()
+    eventManager -> playerManager : setPlayer()
     playerManager -->eventManager
 
     eventManager -> timer : getTime()

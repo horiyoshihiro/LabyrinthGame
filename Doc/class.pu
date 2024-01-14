@@ -4,20 +4,27 @@ title クラス図
 class Player {
     -int[][] currentPosition
     +procPlayer()
-    +getPositionOfPl()
+    +P_getPositionOfPl()
 }
 class Labyrinth {
     -int     ID
     -int[2]  cordinateOfGoal
     -int[][] mapOfLabyrinth
     -int[][] revealedMpOfLabyrinth
-    +makeLabyrinth()
+    
     +isWallorWay()
     +revealMap()
     +getRevealedMap()
     +isPlayerOnGoal()
-    +getAllIDOFLab();
 }
+class LabsInfo {
+    -LabyrinthType* labsList[NUMOFLAB]
+    -static int     labIDOFPlayingLab
+    +setLabyrinth()
+    +getArrayOfLab()
+    +isLabExist()
+}
+
 class Message {
     +String congratuation
     +String endGame
@@ -30,6 +37,8 @@ class Time {
     +setStartTime()
     +calcPlayTime()
 }
+
+LabsInfo *-- Labyrinth  
 
 
 @enduml

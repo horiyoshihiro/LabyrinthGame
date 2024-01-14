@@ -10,9 +10,12 @@ void startGame(){
     bool getToGoal;
 
     /* prepare for game */
-    LabIDType labID = chooseIDOFLabyrinth();
-    makeLabyrinth(&labID);
-    makePlayer();
+    do{
+        LabIDType labID = chooseIDOFLabyrinth();
+    }while( !(isLabExist(labID)))
+    
+    setLabyrinth(labID);
+    setPlayer();
     setStartTime();
 
     /* start process of game */
@@ -24,31 +27,35 @@ void startGame(){
 }
 
 bool playGame(){
-    PositionType position;
-    int[SIZEOFMAP][SIZEOFMAP] map;
+    XYPositionType* pPosition;
+    MapType* pMap;
     ActionType action;
 
 
     while( 0 ){
-        PositionType revealPoint;
+        XYPositionType* revealedPoint;
+        bool isWall;
 
-        retPos = getPositionOfPl(&position);
-        retMap = getMap(&map);
+        retPos = P_getPositionOfPl(pPosition);
+        retMap = L_getRevealedMap(pMap);
 
-        showGameView(&map, &position);
+        showGameView(pMap, pPosition);
 
-        ret = getPlayerAction(&action);
+        do{
+            getPlayerAction(&action);
+        }while( !(isValidAction(&action)))
+            
 
-        ret = isWallorWay(position, action);
+        isWall = L_isWallorWay(pPosition, action);
 
 
-        revealedPoint = plocPlayer(position, ret);
+        revealedPoint = plocPlayer(pPosition, isWall);
 
-        revealMap(revealedPoint);
+        L_revealMap(revealedPoint);
 
-        getPositionOfPl(&position);
+        P_getPositionOfPl(pPosition);
 
-        if ( isPlayerOnGoal(&position) ) {
+        if ( L_isPlayerOnGoal(pPosition) ) {
             /* player pass the game */
             break;
         }else{

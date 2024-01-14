@@ -10,7 +10,7 @@ loop
     end
     IOManager --> eventManger
 
-    eventManger -> playerManager : getPositionOfPl()
+    eventManger -> playerManager : P_getPositionOfPl()
     playerManager --> eventManger
 
     eventManger -> labyrinthManager : revealLab()

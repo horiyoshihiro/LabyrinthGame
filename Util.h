@@ -4,4 +4,5 @@
 
 #define TRUE true
 #define FALSE false
-#define PositionType    unsinged int[DEMENTIONOFLAB]
+
+typedef unsinged int XYPositionType[2];

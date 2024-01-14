@@ -1,15 +1,15 @@
+#include "LabyrinthCfg.h"
+#include "Labyrinth.h"
 #include "Util.h"
 
-#define LabIDType       unsigned int
-#define MapType         unsigned int[SIZEOFMAP][SIZEOFMAP]
+int getIndexOfLab(LabIDType labID);
 
+extern void setLabyrinth(LabIDType labId);
+extern bool isLabExist(LabIDType labId);
+extern void getArrayOFpLab(LabyrinthType* ArrOfLab);
+extern int  getNumOfLab();
 
-
-extern void makeLabyrinth(LabIDType* labId);
-extern void isWallorWay(int[] position, ActionType action);
-extern void revealMap(PositionType revealedPoint);
-extern MapType* getRevealedMap();
-extern bool isPlayerOnGoal(PositionType* pposition);
-extern void getAllIDOFLab(int* numOFLabyrinth);
-
-extern 
+extern void L_isWallorWay(XYPositionType position, XYPositionType nextDirection);
+extern void L_revealMap(XYPositionType revealedPoint);
+extern bool L_getRevealedMap(MapType* pMap);
+extern bool L_isPlayerOnGoal(XYPositionType* pposition);
