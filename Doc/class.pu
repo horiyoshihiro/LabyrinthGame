@@ -11,10 +11,12 @@ class Labyrinth {
     -int[2]  cordinateOfGoal
     -int[][] mapOfLabyrinth
     -int[][] revealedMpOfLabyrinth
+    +makeLabyrinth()
     +isWallorWay()
     +revealMap()
-    +getMap()
+    +getRevealedMap()
     +isPlayerOnGoal()
+    +getAllIDOFLab();
 }
 class Message {
     +String congratuation
