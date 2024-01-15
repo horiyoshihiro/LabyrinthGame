@@ -4,32 +4,32 @@ package "abstractIO" {
 }
 
 package "input" {
-     [readKey]
+     [ReadKey]
 }
 
-[IOManager] --> [readKey]
+[IOManager] --> [ReadKey]
 
 package "process" {
     [eventManager]
-    [timer]
-    [labyrinthManager]
-    [playerManager]
-    [viewChanger]
+    [Timer]
+    [LabyrinthManager] --> [Labyrinth]
+    [PlayerManager] --> [Player]
+    [ComM]
 }
 
 package "output" {
-    [IOManager] --> [showView]
+    [IOManager] --> [ShowView]
 }
 
-[eventManager]     -->  [IOManager]
+
+[ComM]      --> [IOManager]     
+
+[eventManager] --> [Timer]
+[eventManager] -->  [PlayerManager]
+[eventManager] -->  [LabyrinthManager]
+[eventManager] -->  [ComM]
 
 
-[viewChanger]      --> [IOManager]     
-
-[eventManager] --> [timer]
-[eventManager] -->  [playerManager]
-[eventManager] -->  [labyrinthManager]
-[eventManager] -->  [viewChanger]
 
 
 @enduml

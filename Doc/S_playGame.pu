@@ -17,17 +17,17 @@ loop
     labyrinthManager --> eventManger
 
     alt not pass labyrinth
-        eventManger -> viewChanger : procGame()
-            viewChanger -> IOManager : showGameView()
+        eventManger -> ComM : procGame()
+            ComM -> IOManager : showGameView()
                 IOManager -> showView : writeLabandPl()
                 showView --> IOManager
-            IOManager -> viewChanger
-        viewChanger --> eventManger
+            IOManager -> ComM
+        ComM --> eventManger
     else pass labyrinth
         eventManger -> timer : calcPlayTime()
         timer --> eventManger 
-        eventManger -> viewChanger : ProcAfterPassGame()
-            viewChanger -> IOManager : showPassView()
+        eventManger -> ComM : ProcAfterPassGame()
+            ComM -> IOManager : showPassView()
                 IOManager -> showView : writeCongandTime()
         break
         end

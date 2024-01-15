@@ -5,4 +5,4 @@
 #define TRUE true
 #define FALSE false
 
-typedef unsinged int XYPositionType[2];
+typedef singed int XYPositionType[2];

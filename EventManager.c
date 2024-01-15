@@ -32,8 +32,7 @@ bool playGame(){
     ActionType action;
 
 
-    while( 0 ){
-        XYPositionType* revealedPoint;
+    while( 0 ){;
         bool isWall;
 
         retPos = P_getPositionOfPl(pPosition);
@@ -43,15 +42,17 @@ bool playGame(){
 
         do{
             getPlayerAction(&action);
-        }while( !(isValidAction(&action)))
+        }while( !(isValidAction(action)))
             
 
-        isWall = L_isWallorWay(pPosition, action);
+        isWall = L_isWallORWay(pPosition, action);
 
 
-        revealedPoint = plocPlayer(pPosition, isWall);
+        ret = plocPlayer(pPosition, action, isWall);
 
-        L_revealMap(revealedPoint);
+        if( ret == TRUE){
+            L_revealMap(pPosition);
+        }
 
         P_getPositionOfPl(pPosition);
 

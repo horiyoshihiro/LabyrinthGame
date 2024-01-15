@@ -9,11 +9,11 @@ eventManager -> IOManager : waitInput()
     end
 IOManager --> eventManager
 
-eventManager -> viewChanger : backToTitle()
-    viewChanger -> IOManager : showTitle()
+eventManager -> ComM : backToTitle()
+    ComM -> IOManager : showTitle()
         IOManager -> showView : writeTitle()
         showView --> IOManager
-    IOManager --> viewChanger
-viewChanger --> eventManager
+    IOManager --> ComM
+ComM --> eventManager
 
 @@enduml

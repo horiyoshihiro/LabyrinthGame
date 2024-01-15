@@ -2,7 +2,7 @@
 #include "Timer.h"
 #include "LabyrinthManager.h"
 #include "PlayerManager.h"
-#include "ViewChanger.h"
+#include "ComM.h"
 #include "IOManager.h"
 #include "Util.h"
 

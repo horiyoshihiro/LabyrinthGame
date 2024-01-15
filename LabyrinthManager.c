@@ -32,7 +32,7 @@ int getIndexOfLab(LabIDType labID){
 }
 
 /* wrapper */
-bool L_isWallorWay(XYPositionType* pPosition, XYPositionType nextDirection){
+bool L_isWallORWay(XYPositionType* pPosition, XYPositionType nextDirection){
     indexOfLab = getIndexOfLab(labIDOFPlaying);
     bool ret = isWallorWay(indexOfLab, pPosition, nextDirection);
     return ret;

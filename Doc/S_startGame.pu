@@ -10,12 +10,12 @@ eventManager -> IOManager : waitInput()
 IOManager --> eventManager
 
 alt finish game
-    eventManager -> viewChanger : finishGame()
-        viewChanger -> IOManager : showFinishView()
+    eventManager -> ComM : finishGame()
+        ComM -> IOManager : showFinishView()
             IOManager -> showView : writeFinishMessage()
             showView --> IOManager
-        IOManager --> viewChanger
-    viewChanger --> eventManager
+        IOManager --> ComM
+    ComM --> eventManager
     eventManager -> eventManager : endMyself()
     break
         note right
@@ -33,12 +33,12 @@ else start game
     eventManager -> timer : getTime()
     timer --> eventManager
 
-    eventManager -> viewChanger : playGame()
-        viewChanger -> IOManager : showGameView()
+    eventManager -> ComM : playGame()
+        ComM -> IOManager : showGameView()
             IOManager -> showView : writeLabandPl()
             showView --> IOManager
-        IOManager --> viewChanger
-    viewChanger --> eventManager
+        IOManager --> ComM
+    ComM --> eventManager
 
     note right
         ゲームシーケンスへ
