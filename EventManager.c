@@ -11,7 +11,7 @@ void startGame(){
 
     /* prepare for game */
     do{
-        LabIDType labID = chooseIDOFLabyrinth();
+        int labID = chooseIDOfLabyrinth();
     }while( !(isLabExist(labID)))
     
     setLabyrinth(labID);

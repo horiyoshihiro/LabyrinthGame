@@ -3,7 +3,6 @@
 #include "LabyrinthManager.h"
 #include "PlayerManager.h"
 #include "ComM.h"
-#include "IOManager.h"
 #include "Util.h"
 
 /* Prototype declaration */

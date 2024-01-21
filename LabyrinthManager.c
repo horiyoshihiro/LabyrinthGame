@@ -3,8 +3,8 @@
 static LabIDType labIDOFPlaying;
 static LabyrinthType* labsList[NUMOFLABYRINTH];
 
-void setLabyrinth(LabIDType labId){
-    if ( isLabExist(labId) ) {
+void setLabyrinth(int labId){
+    if ( isLabExist((LabIDType)labId) ) {
         labIDOFPlaying = labId;
     }
 }
@@ -32,7 +32,31 @@ int getIndexOfLab(LabIDType labID){
 }
 
 /* wrapper */
-bool L_isWallORWay(XYPositionType* pPosition, XYPositionType nextDirection){
+bool L_isWallORWay(XYPositionType* pPosition, ActionType action){
+    XYPositionType nextDirection;
+    
+    switch (action)
+    {
+    case W:
+        nextDirection = {0, 1};
+        break;
+
+    case A:
+        nextDirection = {0, -1};
+        break;
+
+    case S:
+        nextDirection = {0, -1};
+        break;
+
+    case D:
+        nextDirection = {1, 0};
+        break;
+    default:
+        break;
+    }
+
+
     indexOfLab = getIndexOfLab(labIDOFPlaying);
     bool ret = isWallorWay(indexOfLab, pPosition, nextDirection);
     return ret;

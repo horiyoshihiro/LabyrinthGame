@@ -1,33 +1,53 @@
 @startuml
 package "abstractIO" {
-    [IOManager]
+    [IOManager.h]
 }
 
 package "input" {
-     [ReadKey]
+     [ReadKey.h]
 }
 
-[IOManager] --> [ReadKey]
+[IOManager.h] --> [ReadKey.h]
 
 package "process" {
-    [eventManager]
-    [Timer]
-    [LabyrinthManager] --> [Labyrinth]
-    [PlayerManager] --> [Player]
-    [ComM]
+    [eventManager.h]
+    [Timer.h]
+    [ComM.h]
+    package "labyrinth" {
+        [LabyrinthManager.h] --> [Labyrinth.h]
+    }
+    package "player" {
+        [PlayerManager.h] --> [Player.h]
+    }
+
+    package "config" {
+        [LabyrinthCfg.h]
+        [PlayerCfg.h]
+        [InputCfg.h]
+    }
+    
+    
+    [LabyrinthManager.h] --> [LabyrinthCfg.h]
+    [LabyrinthCfg.h] --> [Labyrinth.h]
+    [eventManager.h] --> [Timer.h]
+    [eventManager.h] -->  [PlayerManager.h]
+    [eventManager.h] -->  [LabyrinthManager.h]
+    [eventManager.h] -->  [ComM.h]
+    [LabyrinthManager.h] --> [InputCfg.h]
+    [PlayerManager.h] --> [InputCfg.h]
+    [ComM.h] --> [InputCfg.h]
+    [ComM.h] --> [LabyrinthManager.h]
+    [ComM.h] --> [LabyrinthManager.h]
 }
 
 package "output" {
-    [IOManager] --> [ShowView]
+    [IOManager.h] --> [ShowView.h]
 }
 
 
-[ComM]      --> [IOManager]     
+[ComM.h]      --> [IOManager.h]     
 
-[eventManager] --> [Timer]
-[eventManager] -->  [PlayerManager]
-[eventManager] -->  [LabyrinthManager]
-[eventManager] -->  [ComM]
+
 
 
 

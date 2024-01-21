@@ -3,13 +3,17 @@
 static XYPositionType posOfPl;
 
 void setPlayerPosition(XYPositionType* PlayerPosition){
-    posOfPl = *PlayerPosition;
+    for (int i = 0; i < sizeof(PlayerPosition) / sizeof(XYPositionType); i++ ){
+        posOfPl[i] = PlayerPosition[i];
+    }
 }
 void getPlayerPOsition(XYPositionType* pPosition){
-    pPosition[0] = posOfPl[0];
-    pPosition[1] = posOfPl[1];
+    for (int i = 0; i < sizeof(pPosition) / sizeof(XYPositionType); i++ ){
+        pPosition[i] = posOfPl[i];
+    }
 }
 void movePlayerWithDiff(XYPositionType* diff){
-    posOfPl[0] += diff[0];
-    posOfPl[1] += diff[1];
+for (int i = 0; i < sizeof(PlayerPosition) / sizeof(XYPositionType); i++ ){
+        posOfPl[i] += diff[i];
+    }    
 }

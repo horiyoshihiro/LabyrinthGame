@@ -7,7 +7,8 @@
     "util.h": "c",
     "labyrinthcfg.h": "c",
     "labyrinthmanager.h": "c",
-    "labyrinth.h": "c"
+    "labyrinth.h": "c",
+    "player.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled",
   "C_Cpp_Runner.msvcBatchPath": "",
