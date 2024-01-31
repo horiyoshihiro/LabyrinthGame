@@ -3,12 +3,12 @@
 title 迷路ゲームプレイ中シーケンス
 
 loop
-    eventManger -> IOManager : waitInput()
+    eventManger -> UserOperation : waitInput()
     alt you got any kind of key input
-        IOManager -> readKey : getInput()
-        readKey --> IOManager
+        UserOperation -> readKey : getInput()
+        readKey --> UserOperation
     end
-    IOManager --> eventManger
+    UserOperation --> eventManger
 
     eventManger -> playerManager : P_getPositionOfPl()
     playerManager --> eventManger
@@ -18,17 +18,17 @@ loop
 
     alt not pass labyrinth
         eventManger -> ComM : procGame()
-            ComM -> IOManager : showGameView()
-                IOManager -> showView : writeLabandPl()
-                showView --> IOManager
-            IOManager -> ComM
+            ComM -> UserOperation : showPlayintLabyrinth()
+                UserOperation -> showView : writeLabandPl()
+                showView --> UserOperation
+            UserOperation -> ComM
         ComM --> eventManger
     else pass labyrinth
         eventManger -> timer : calcPlayTime()
         timer --> eventManger 
         eventManger -> ComM : ProcAfterPassGame()
-            ComM -> IOManager : showPassView()
-                IOManager -> showView : writeCongandTime()
+            ComM -> UserOperation : showPassView()
+                UserOperation -> showView : writeCongandTime()
         break
         end
     end

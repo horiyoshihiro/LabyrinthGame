@@ -1,3 +1,7 @@
+#ifndef INPUTCFG
+#define INPUTCFG
+
+#include "IOTypes.h"
 /* Type declaration */
 
 #define START           TRUE
@@ -10,5 +14,10 @@
 #define D               (ActionType)101
 #define S               (ActionType)102
 #define A               (ActionType)103
+#define INVALIDE_ACTION (ActionType)104
+
 
 typedef ActionType      unsigned int;
+
+
+#endif

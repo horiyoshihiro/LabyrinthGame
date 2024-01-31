@@ -2,19 +2,19 @@
 
 
 /* 0 equals to way */
-/* 1 equals to wall */
+/* WALL equals to wall */
 /* last line's first element's pos becomes origin{0.0} */
-MapType MapOfLaby =   { {1,1,0,0,0},
-                        {1,0,0,1,1},
-                        {1,0,1,0,1},
-                        {1,0,0,0,1},
-                        {0,0,1,0,1},};
+MapType MapOfLaby =   { {WALL,WALL,WAY,WAY,WAY},
+                        {WALL,WAY,WAY,WALL,WALL},
+                        {WALL,WAY,WALL,WAY,WALL},
+                        {WALL,WAY,WAY,WAY,WALL},
+                        {WAY,WAY,WALL,WAY,WALL},};
 
 MapType RevealedMap;
 
 LabyrinthType Labyrinths[NUMOFLABYRINTH] = {
     {
-        LabIDType       1(U),
+        LabIDType       WALL(U),
         {0,0},
         {4,4},
         MapOfLaby,

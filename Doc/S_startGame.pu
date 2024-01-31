@@ -2,19 +2,19 @@
 
 title タイトル画面からの遷移
 
-eventManager -> IOManager : waitInput()
+eventManager -> UserOperation : waitInput()
     alt you got any kind of key input
-        IOManager -> readKey : getInput()
-        readKey --> IOManager
+        UserOperation -> readKey : getInput()
+        readKey --> UserOperation
     end
-IOManager --> eventManager
+UserOperation --> eventManager
 
 alt finish game
     eventManager -> ComM : finishGame()
-        ComM -> IOManager : showFinishView()
-            IOManager -> showView : writeFinishMessage()
-            showView --> IOManager
-        IOManager --> ComM
+        ComM -> UserOperation : showFinishView()
+            UserOperation -> showView : writeFinishMessage()
+            showView --> UserOperation
+        UserOperation --> ComM
     ComM --> eventManager
     eventManager -> eventManager : endMyself()
     break
@@ -34,10 +34,10 @@ else start game
     timer --> eventManager
 
     eventManager -> ComM : playGame()
-        ComM -> IOManager : showGameView()
-            IOManager -> showView : writeLabandPl()
-            showView --> IOManager
-        IOManager --> ComM
+        ComM -> UserOperation : showPlayintLabyrinth()
+            UserOperation -> showView : writeLabandPl()
+            showView --> UserOperation
+        UserOperation --> ComM
     ComM --> eventManager
 
     note right

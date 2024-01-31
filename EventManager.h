@@ -1,3 +1,6 @@
+#ifndef __EVENTMANAGER
+#define __EVENTMANAGER
+
 #include <stdio.h>
 #include "Timer.h"
 #include "LabyrinthManager.h"
@@ -17,3 +20,5 @@ extern void finishGame();
 #define WESTHEADING   203   /*a*/
 #define YES           300
 #define NO            301
+
+#endif

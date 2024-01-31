@@ -7,11 +7,12 @@ class Player {
     +P_getPositionOfPl()
 }
 class Labyrinth {
-    -int     ID
-    -int[2]  GoalPos
-    -int[2]  StartPos
-    -int[][] mapOfLabyrinth
-    -int[][] revealedMpOfLabyrinth
+    -LabIDType      ID
+    -int            difficulty
+    -int[2]         GoalPos
+    -int[2]         StartPos
+    -int[][]        *mapOfLabyrinth
+    -int[][]        *revealedMpOfLabyrinth
     
     +isWallorWay()
     +revealMap()

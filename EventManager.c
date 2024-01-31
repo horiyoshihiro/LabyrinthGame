@@ -2,7 +2,7 @@
 
 
 void init() {
-
+    showWelcomView();
 }
 
 void startGame(){
@@ -28,7 +28,8 @@ void startGame(){
 
 bool playGame(){
     XYPositionType* pPosition;
-    MapType* pMap;
+    MapType* pLabMap;
+    MapType* prevealedMap;
     ActionType action;
 
 
@@ -36,9 +37,10 @@ bool playGame(){
         bool isWall;
 
         retPos = P_getPositionOfPl(pPosition);
-        retMap = L_getRevealedMap(pMap);
+        retMap = L_getMap(pLabMap);
+        retMap = L_getRevealedMap(prevealedMap);
 
-        showGameView(pMap, pPosition);
+        showPlayigLabyrinth(pLabMap, prevealedMap, pPosition);
 
         do{
             getPlayerAction(&action);

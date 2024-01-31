@@ -1,51 +1,41 @@
 @startuml
-package "abstractIO" {
-    [IOManager.h]
-}
 
 package "input" {
      [ReadKey.h]
 }
 
-[IOManager.h] --> [ReadKey.h]
+package "output" {
+    [ShowView.h]
+}
 
 package "process" {
     [eventManager.h]
     [Timer.h]
-    [ComM.h]
     package "labyrinth" {
-        [LabyrinthManager.h] --> [Labyrinth.h]
+        [LabyrinthManager.h] --> [LabyrinthCfg.h]
+        [LabyrinthCfg.h] --> [Labyrinth.h]
     }
     package "player" {
-        [PlayerManager.h] --> [Player.h]
+        [PlayerManager.h] --> [PlayerCfg.h] 
+        [PlayerCfg.h] --> [Player.h]
+    }
+    
+    package "communication" {
+        [ComM.h] --> [IOCfg.h]
+        [IOCfg.h] --> [IOType.h]
     }
 
-    package "config" {
-        [LabyrinthCfg.h]
-        [PlayerCfg.h]
-        [InputCfg.h]
-    }
-    
-    
-    [LabyrinthManager.h] --> [LabyrinthCfg.h]
-    [LabyrinthCfg.h] --> [Labyrinth.h]
     [eventManager.h] --> [Timer.h]
     [eventManager.h] -->  [PlayerManager.h]
     [eventManager.h] -->  [LabyrinthManager.h]
     [eventManager.h] -->  [ComM.h]
-    [LabyrinthManager.h] --> [InputCfg.h]
-    [PlayerManager.h] --> [InputCfg.h]
-    [ComM.h] --> [InputCfg.h]
-    [ComM.h] --> [LabyrinthManager.h]
-    [ComM.h] --> [LabyrinthManager.h]
-}
-
-package "output" {
-    [IOManager.h] --> [ShowView.h]
+    
+    
 }
 
 
-[ComM.h]      --> [IOManager.h]     
+[ComM.h] --> [ReadKey.h]
+[ComM.h] --> [ShowView.h]   
 
 
 

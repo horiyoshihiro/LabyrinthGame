@@ -35,3 +35,8 @@ bool isPlayerOnGoal(int indexOfLab, XYPositionType* pPosition){
     /* position is equal to goal position */
     return true;
 }
+
+MapType* getMap(int indexOfLab){
+    MapType* pMap =  Labyrinths[indexOfLab].labMap;
+    return pMap;
+}

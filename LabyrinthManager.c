@@ -9,6 +9,13 @@ void setLabyrinth(int labId){
     }
 }
 
+LevelType getLabInfoByIndex(int labIndex){
+    if ( labIndex < NUMOFLABYRINTH ){
+        return Labyrinths[labIndex].difficulty;
+    }
+    return INVALID_DIFFICULTY;
+}
+
 bool isLabExist(LabIDType labId){
     bool ret = FALSE;
     for(i = 0: i < NUMOFLABYRINTH : i++){
@@ -63,7 +70,7 @@ bool L_isWallORWay(XYPositionType* pPosition, ActionType action){
 }
 
 void L_revealMap(XYPositionType* revealedPoint){
-    indexOfLab = getIndexOfLab(labIDOFPlaying);
+    int indexOfLab = getIndexOfLab(labIDOFPlaying);
     revealMap(indexOfLab, revealedPoint);
 }
 
@@ -76,4 +83,9 @@ bool L_isPlayerOnGoal(XYPositionType* pposition){
     indexOfLab = getIndexOfLab(labIDOFPlaying);
     bool ret = isPlayerOnGoal(indexOfLab, pposition);
     return ret;
+}
+
+bool L_getMap(MapType* pMap){
+    int indexOfLab = getIndexOfLab(labIDOFPlaying);
+    pMap = getMap(indexOfLab);
 }

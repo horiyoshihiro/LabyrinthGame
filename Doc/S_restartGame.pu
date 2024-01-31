@@ -2,18 +2,18 @@
 
 title ゲームクリア後にタイトル画面に戻るまで
 
-eventManager -> IOManager : waitInput()
+eventManager -> UserOperation : waitInput()
     alt you got any kind of key input
-        IOManager -> readKey : getInput()
-        readKey --> IOManager
+        UserOperation -> readKey : getInput()
+        readKey --> UserOperation
     end
-IOManager --> eventManager
+UserOperation --> eventManager
 
 eventManager -> ComM : backToTitle()
-    ComM -> IOManager : showTitle()
-        IOManager -> showView : writeTitle()
-        showView --> IOManager
-    IOManager --> ComM
+    ComM -> UserOperation : showTitle()
+        UserOperation -> showView : writeTitle()
+        showView --> UserOperation
+    UserOperation --> ComM
 ComM --> eventManager
 
 @@enduml
