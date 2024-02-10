@@ -1,5 +1,9 @@
 #include "ComM.h"
 
+void showWelcomView(){
+    dis_WelcomeMessage();
+}
+
 bool askStartORFinishGame(){
     dis_StartOrFinish();
     bool ans = get_YesNo();
@@ -15,6 +19,7 @@ int chooseIDOfLabyrinth(){
 }
 void showPlayigLabyrinth(MapType* originalMap, Maptype* revealedMap, XYPositionType* playerPos){
     int arrayOfLabEle[SIZEOFMAP * SIZEOFMAP];
+    int numofArryElem = SIZEOFMAP * SIZEOFMAP;
     if ( (revealedMap == NULL) || (playerPos == NULL)){
 
     }else {
@@ -29,7 +34,7 @@ void getPlayerAction(ActionType* actionPtr){
     if ( actionPtr == NULL){
         return;
     }
-    dis_QuestionOfAction();
+    dis_ChooseAction();
     get_Direction(&direction);
     switch (direction)
     {

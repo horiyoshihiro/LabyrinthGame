@@ -8,11 +8,12 @@ void init() {
 void startGame(){
     time_t playTime;
     bool getToGoal;
+    LabIDType labID;
 
     /* prepare for game */
     do{
-        int labID = chooseIDOfLabyrinth();
-    }while( !(isLabExist(labID)))
+        labID = chooseIDOfLabyrinth();
+    }while( !(isLabExist(labID)));
     
     setLabyrinth(labID);
     setPlayer();
@@ -23,7 +24,7 @@ void startGame(){
 
     do {
         getToGoal = playGame();
-    }while( !getToGoal )
+    }while( !getToGoal );
 }
 
 bool playGame(){
@@ -31,9 +32,12 @@ bool playGame(){
     MapType* pLabMap;
     MapType* prevealedMap;
     ActionType action;
+    bool retPos;
+    bool retMap;
+    bool ret;
 
 
-    while( 0 ){;
+    while( 0 ){
         bool isWall;
 
         retPos = P_getPositionOfPl(pPosition);
@@ -44,7 +48,7 @@ bool playGame(){
 
         do{
             getPlayerAction(&action);
-        }while( !(isValidAction(action)))
+        }while( !(isValidAction(action)));
             
 
         isWall = L_isWallORWay(pPosition, action);
@@ -73,6 +77,14 @@ bool playGame(){
 
     backToTitle();
 
+}
+
+void ProcAfterPassGame(){
+
+}
+
+void backToTitle(){
+    
 }
 
 void finishGame(){

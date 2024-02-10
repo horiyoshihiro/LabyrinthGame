@@ -36,10 +36,4 @@ package "process" {
 
 [ComM.h] --> [ReadKey.h]
 [ComM.h] --> [ShowView.h]   
-
-
-
-
-
-
 @enduml

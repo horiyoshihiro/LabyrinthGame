@@ -8,7 +8,7 @@
 	"settings": {
 		"files.associations": {
 			"stdio.h": "c",
-			"UserOperation.h": "c",
+			"iomanager.h": "c",
 			"eventmanager.h": "c",
 			"gamecfg.h": "c",
 			"util.h": "c",
@@ -16,7 +16,11 @@
 			"labyrinthmanager.h": "c",
 			"labyrinth.h": "c",
 			"player.h": "c",
-			"comm.h": "c"
+			"comm.h": "c",
+			"playermanager.h": "c",
+			"inputcfg.h": "c",
+			"PLAYERMANAGER.H": "cpp",
+			"main.h": "c"
 		},
 		"C_Cpp.errorSquiggles": "disabled",
 		"C_Cpp_Runner.msvcBatchPath": "",
