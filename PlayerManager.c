@@ -34,13 +34,13 @@ bool plocPlayer(XYPositionType* pPosition, ActionType action, bool isWall){
         switch (action)
         {
         case W:
-            diff = {0, 1};
+            diff[] = {0, 1};
         case S:
-            diff = {0, -1};
+            diff[] = {0, -1};
         case D:
-            diff = {1, 0};
+            diff[] = {1, 0};
         case A:
-            diff = {-1, 0};    
+            diff[] = {-1, 0};    
             movePlayerWithDiff(&diff);
             getPlayerPOsition(pPosition);
             ret = TRUE;

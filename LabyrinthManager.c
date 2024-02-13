@@ -1,11 +1,11 @@
 #include "LabyrinthManager.h"
 
-static LabIDType labIDOFPlaying;
-static LabyrinthType* labsList[NUMOFLABYRINTH];
+static LabIDType s_labIDOFPlaying;
+static LabyrinthType* s_labsList[NUMOFLABYRINTH];
 
-void setLabyrinth(int labId){
+void setLabyrinth(LabIDType labId){
     if ( isLabExist((LabIDType)labId) ) {
-        labIDOFPlaying = labId;
+        s_labIDOFPlaying = labId;
     }
 }
 
@@ -18,8 +18,8 @@ LevelType getLabInfoByIndex(int labIndex){
 
 bool isLabExist(LabIDType labId){
     bool ret = FALSE;
-    for(i = 0: i < NUMOFLABYRINTH : i++){
-        if(labsList[i]->ID == labId){
+    for(int i = 0 ; i < NUMOFLABYRINTH ; i++){
+        if(s_labsList[i]->ID == labId){
             ret = TRUE;
             break;
         }
@@ -29,8 +29,8 @@ bool isLabExist(LabIDType labId){
 
 int getIndexOfLab(LabIDType labID){
     int indexOfLab = INVALID_LAB_INDEX;
-    for(i = 0: i < NUMOFLABYRINTH : i++){
-        if(labsList[i]->ID == labId){
+    for(int i = 0; i < NUMOFLABYRINTH ; i++){
+        if(s_labsList[i]->ID == labID){
             indexOfLab = i;
             break;
         }
@@ -40,52 +40,55 @@ int getIndexOfLab(LabIDType labID){
 
 /* wrapper */
 bool L_isWallORWay(XYPositionType* pPosition, ActionType action){
+    int indexOfLab;
     XYPositionType nextDirection;
     
     switch (action)
     {
     case W:
-        nextDirection = {0, 1};
+        nextDirection[2] = {0, 1};
         break;
 
     case A:
-        nextDirection = {0, -1};
+        nextDirection[2] = {0, -1};
         break;
 
     case S:
-        nextDirection = {0, -1};
+        nextDirection[2] = {0, -1};
         break;
 
     case D:
-        nextDirection = {1, 0};
+        nextDirection[2] = {1, 0};
         break;
     default:
         break;
     }
 
 
-    indexOfLab = getIndexOfLab(labIDOFPlaying);
+    indexOfLab = getIndexOfLab(s_labIDOFPlaying);
     bool ret = isWallorWay(indexOfLab, pPosition, nextDirection);
     return ret;
 }
 
 void L_revealMap(XYPositionType* revealedPoint){
-    int indexOfLab = getIndexOfLab(labIDOFPlaying);
+    int indexOfLab = getIndexOfLab(s_labIDOFPlaying);
     revealMap(indexOfLab, revealedPoint);
 }
 
 bool L_getRevealedMap(MapType* pMap){
-    indexOfLab = getIndexOfLab(labIDOFPlaying);
+    int indexOfLab;
+    indexOfLab = getIndexOfLab(s_labIDOFPlaying);
     pMap = getRevealedMap(indexOfLab);
     return true;
 }
 bool L_isPlayerOnGoal(XYPositionType* pposition){
-    indexOfLab = getIndexOfLab(labIDOFPlaying);
+    int indexOfLab;
+    indexOfLab = getIndexOfLab(s_labIDOFPlaying);
     bool ret = isPlayerOnGoal(indexOfLab, pposition);
     return ret;
 }
 
 bool L_getMap(MapType* pMap){
-    int indexOfLab = getIndexOfLab(labIDOFPlaying);
+    int indexOfLab = getIndexOfLab(s_labIDOFPlaying);
     pMap = getMap(indexOfLab);
 }

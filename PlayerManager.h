@@ -10,7 +10,7 @@
 
 extern void setPlayer();
 extern bool isValidAction(ActionType action);
-extern XYPositionType* plocPlayer(XYPositionType* pPosition,ActionType action, bool isWall);
+extern bool plocPlayer(XYPositionType* pPosition,ActionType action, bool isWall);
 extern bool P_getPositionOfPl(XYPositionType* pPosition);
 
 #endif

@@ -13,6 +13,9 @@
 #define WALL            1
 #define WAY             0
 
+#define REVEALED        1
+#define HIDDEN          0
+
 typedef     unsigned int LabIDType;
 typedef     unsigned int LevelType;
 typedef     unsigned int MapType[SIZEOFMAP][SIZEOFMAP];
@@ -37,7 +40,7 @@ struct LabsInfo
 
 
 
-
+extern LabyrinthType Labyrinths[NUMOFLABYRINTH];
 
 extern bool isWallorWay(int indexOfLab, XYPositionType* position, XYPositionType* nextDirection);
 extern void revealMap(int indexOfLab, XYPositionType* revealedPoint);

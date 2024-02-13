@@ -12,12 +12,13 @@ MapType MapOfLaby =   { {WALL,WALL,WAY,WAY,WAY},
 
 MapType RevealedMap;
 
-LabyrinthType Labyrinths[NUMOFLABYRINTH] = {
+Labyrinths[NUMOFLABYRINTH] = {
     {
-        LabIDType       WALL(U),
-        {0,0},
-        {4,4},
-        MapOfLaby,
-        RevealedMap,
+        (LabIDType)         WALL,       /* ID */
+        (LevelType)         1,          /* difficulty */
+        {0,0},                          /* StartPosition */
+        {4,4},                          /* GoalPosition */
+        MapOfLaby,                      /* MapOfLabyrinth */
+        RevealedMap,                    /* RevealedMapOfLabyrinth */
     },
 };

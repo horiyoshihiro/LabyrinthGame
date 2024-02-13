@@ -1,5 +1,7 @@
 #include "EventManager.h"
 
+bool playGame();
+
 
 void init() {
     showWelcomView();
@@ -76,6 +78,8 @@ bool playGame(){
     ProcAfterPassGame();
 
     backToTitle();
+
+    return true;
 
 }
 
